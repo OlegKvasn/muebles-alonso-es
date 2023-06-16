@@ -1,0 +1,21 @@
+.container{
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  gap: 10px;
+}
+
+.logo {
+  margin-bottom: 20px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-right: 50px;
+  font-size: 16px;
+}

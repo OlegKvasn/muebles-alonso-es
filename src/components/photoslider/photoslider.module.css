@@ -47,7 +47,7 @@
   display: flex;
   justify-content: center;
   gap: 5px;
-  z-index: 2;
+  z-index: 1;
 }
 
 .dot {
@@ -58,3 +58,17 @@
   cursor: pointer;
   background: transparent;
 }
+
+/* @media (max-width: 768px) {
+  .slider {
+  padding: 0;
+  width: 100%!important;
+  }
+
+  .slide {
+  height: 100%;
+  background-position: center;
+  background-size:contain ;
+  width: 100%!important;
+}
+} */

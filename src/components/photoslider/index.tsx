@@ -6,7 +6,10 @@ import styles from './photoslider.module.css'
 const PhotoSlider = ({slides, parentWidth, parentHeight}:any) => {
   const timeRef = useRef<NodeJS.Timeout | null>(null);
   const [currentIndex, setCurrentIndex] = useState <number>(0);
-
+  const smallMedia = (typeof window !== 'undefined') ? window.matchMedia('(max-width: 768px)') : undefined;
+  
+  const width = (smallMedia?.matches && (parentWidth > 500)) ? 500 : parentWidth;
+   
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0
     const newIndex = isFirstSlide ? slides.length -1 : currentIndex - 1
@@ -21,12 +24,12 @@ const PhotoSlider = ({slides, parentWidth, parentHeight}:any) => {
 
   const getSlideBackground = (slideIndex: number) => ({
     backgroundImage: `url(${slides[slideIndex].url})`,
-    width: `${parentWidth}px`
+    width: `${width}px`
   })
 
   const getSlideContainerWidth = () => ({
-    width: parentWidth * slides.length,
-    transform: `translateX(${-(currentIndex * parentWidth)}px)`,
+    width: width * slides.length,
+    transform: `translateX(${-(currentIndex * width)}px)`,
   });
 
   useEffect(() => {
@@ -41,7 +44,7 @@ const PhotoSlider = ({slides, parentWidth, parentHeight}:any) => {
 
 
   return (
-    <div className={styles.slider} style={{width: `${parentWidth}px`, height: `${parentHeight}px`}}>
+    <div className={styles.slider} style={{width: `${width}px`, height: `${parentHeight}px`}}>
       <div>
         <button className={`${styles.arrowLeft} ${styles.arrow}`} onClick={goToPrevious}>❰</button>
         <button className={`${styles.arrowRight} ${styles.arrow}`} onClick={goToNext}>❱</button>
