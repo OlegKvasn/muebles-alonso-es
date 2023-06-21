@@ -6,17 +6,29 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cf-export": "contentful space export src/contentful/export-config.json  --management-token $CONTENTFUL_MANAGEMENT_TOKEN --space-id $CONTENTFUL_SPACE_ID",
+    "types:contentful": "cf-content-types-generator src/contentful/export.json --out src/@types/contetnful",
+    "generate:types": "contentful-typescript-codegen --output src/@types/contentful.d.ts"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.17.0",
     "@types/node": "20.3.1",
     "@types/react": "18.2.12",
     "@types/react-dom": "18.2.5",
+    "cf-content-types-generator": "^2.12.2",
+    "contentful": "^10.2.4",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
     "next": "13.4.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.1.3"
+  },
+  "devDependencies": {
+    "contentful-cli": "^2.6.22",
+    "contentful-management": "^10.36.0",
+    "contentful-typescript-codegen": "^3.4.0",
+    "dotenv": "^16.3.1"
   }
 }
