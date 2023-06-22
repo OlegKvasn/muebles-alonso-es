@@ -43,6 +43,7 @@ const PhotoSlider = ({slides, parentWidth, parentHeight}:any) => {
   },[goToNext])
 
 
+  // FIXME: проблема з slide.
   return (
     <div className={styles.slider} style={{width: `${width}px`, height: `${parentHeight}px`}}>
       <div>
