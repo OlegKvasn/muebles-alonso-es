@@ -1,4 +1,4 @@
-.container{
+.container {
   display: flex;
   flex-direction: column;
   color: #fff;
@@ -9,7 +9,7 @@
   position: relative;
 }
 
-.infoContainer{
+.infoContainer {
   display: flex;
   gap: 50px;
 }
@@ -26,17 +26,38 @@
 }
 
 .line {
-  height: 1px; 
-  width: 800px;
+  height: 1px;
+  width: auto;
   color: #666;
   opacity: 50%;
   /* background-color: #666; */
-} 
+}
 
-.bottom{
+.bottom {
   display: flex;
   gap: 100px;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 992px) {
+  .infoContainer {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .bottom {
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+  .logo {
+    max-width: 70%;
+    max-height: 70%;
+  }
 }

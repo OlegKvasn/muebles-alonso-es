@@ -1,52 +1,74 @@
 .container {
-  /* height: 90px; */
+  height: auto;
   position: sticky;
   background-color: #fff;
   top: 0px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   z-index: 2;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  gap: 1rem;
 }
 
 .logo {
-  margin-left: 50px;
+  max-width: 100%;
+  height: auto;
+  margin-left: 10px;
 }
 
-.links {
+.navList {
   display: flex;
-  /* gap: 50px; */
+  height: 80px;
   gap: 1rem;
-  margin-right: 50px;
+  align-items: center;
+  margin-right: 10px;
   font-size: 20px;
   font-weight: 700;
+  color: var(--nav-text-color);
 }
 
-.dropdown {
-  position: relative;
+.navList a:hover {
+  color: var(--nav-text-color-hover);
 }
 
 .dropdownMenu {
-  position: absolute;
-  left: 0;
-  top: calc(100% + 0.25rem);
-  background-color: #fff;
-  padding: 0.75rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
-  opacity: 0.5;
-  pointer-events: none;
-  transform: translateY(-10px);
-  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  height: inherit;
 }
 
-.dropDownLink:hover + .dropdownMenu {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+.navListLink {
+  position: relative;
+  transition: all 0.25s ease;
 }
-.dropdownMenu:hover {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+.navListLink::after {
+  content: "";
+  background: var(--nav-text-color-hover);
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  transform: scaleX(0);
+  transition: all 0.25s ease;
+}
+.navListLink:hover::after {
+  transform: scale(1);
+}
+
+.burgerBtn {
+  margin-right: 10px;
+  display: none;
+}
+
+@media screen and (max-width: 1060px) {
+  .navList {
+    display: none;
+  }
+  .logo {
+    max-width: 50%;
+    max-height: 50%;
+  }
+  .burgerBtn {
+    display: block;
+  }
 }

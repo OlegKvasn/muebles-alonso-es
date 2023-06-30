@@ -1,6 +1,7 @@
 import ProductCard from "@/components/productCard";
 import { draftMode } from "next/headers";
 import { fetchAllProducts } from "@/contentful/productsMuebles";
+import Grid from "@/components/grid";
 
 export const metadata = {
   title: "Search",
@@ -37,13 +38,12 @@ export default async function SearchPage({
           <span>&quot;{searchQuery}&quot;</span>
         </p>
       ) : null}
-      <div>
-        {searchedProducts.length > 0
-          ? searchedProducts.map((product) => (
-              <ProductCard key={product.titleSlug} product={product} />
-            ))
-          : null}
-      </div>
+      ;
+      {searchedProducts.length > 0 ? (
+        <Grid>
+          <ProductCard products={searchedProducts} />
+        </Grid>
+      ) : null}
     </>
   );
 }

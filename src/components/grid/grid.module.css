@@ -1,0 +1,22 @@
+.gridContainer {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.gridItem {
+  position: relative;
+  aspect-ratio: 1/1;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 992px) {
+  .gridContainer {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}

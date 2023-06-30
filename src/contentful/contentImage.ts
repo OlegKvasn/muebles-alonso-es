@@ -2,7 +2,7 @@ import { Asset } from "contentful";
 import { ContentImage } from "@/@types";
 
 export function parseContentfulContentImage(
-  assets?: [Asset<undefined, string>]
+  assets?: Asset<undefined, string>[]
 ) {
   if (!assets) {
     return null;

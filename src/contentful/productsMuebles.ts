@@ -66,3 +66,16 @@ export async function fetchProduct({
   });
   return parseContentfulProductMuebles(productResult.items[0]);
 }
+
+export async function fetchCategoryList({ preview }: FetchAllProductsOptions) {
+  const contentful = contentfulClient({ preview });
+  const productResult = await contentful.getEntries<TypeProductMuebles>({
+    content_type: "productMuebles",
+  });
+
+  return Array.from(
+    new Set<string>(
+      productResult.items.map((productEntry) => productEntry.fields.category)
+    )
+  ).sort();
+}

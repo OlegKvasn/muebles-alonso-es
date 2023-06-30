@@ -1,0 +1,57 @@
+.container {
+  position: relative;
+  height: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.dropdownMenu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.25rem);
+  background-color: #fff;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+
+.dropdownMenu ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 0.5rem;
+}
+
+.active {
+  opacity: 1;
+  transform: translateY(-20px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  pointer-events: auto;
+}
+
+.inactive {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.activeAccordionChevron {
+  transform: rotate(180deg);
+  transition: transform 150ms;
+}
+
+.inactiveAccordionChevron {
+  transition: transform 150ms;
+}
+
+.dropdownItem {
+  text-transform: capitalize;
+  padding: 0.25rem 0.75rem;
+  font-size: 18px;
+}
+
+.dropdownItem:hover {
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+}

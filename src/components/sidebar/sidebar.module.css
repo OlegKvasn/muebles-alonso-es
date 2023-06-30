@@ -1,8 +1,8 @@
-.container{
+.container {
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   font-size: 18px;
   gap: 10px;
