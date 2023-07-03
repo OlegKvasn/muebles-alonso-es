@@ -1,29 +1,27 @@
-/* eslint-disable @next/next/no-img-element */
 import styles from "./productCard.module.css";
 import Link from "next/link";
 import { ProductMuebles } from "@/@types";
-import Grid from "./grid";
+import Grid from "../../grid";
+import ResponsiveImage from "@/components/images/responsiveImage";
 
 const ProductCard = ({ products }: { products: ProductMuebles[] }) => {
   return (
     <>
       {products.map((product) => (
         <Grid.Item key={product.titleSlug} className={styles.card}>
-          <div className={styles.imageContainer}>
-            {product.images && (
-              <img
-                src={product.images[0].src}
-                srcSet={`${product.images[0].src}?w=800 1x, ${product.images[0].src} 2x`}
-                width={400}
-                height={300}
-                alt={product.images[0].alt}
-              />
-            )}
-          </div>
+          {product.images && (
+            <ResponsiveImage
+              src={`https:${product.images[0].src}`}
+              alt={product.images[0].alt}
+              fill
+              priority
+              sizes="(max-width:1023px) 640px,800px"
+            />
+          )}
           <div className={styles.content}>
             <div className={styles.info}>
               <h4>{product.title}</h4>
-              <p>{`Price: ${product.price} €`}</p>
+              {product.price && <p>{`Price: ${product.price} €`}</p>}
             </div>
             <div className={styles.actions}>
               <Link href={`/muebles/${product.category}/${product.titleSlug}`}>
@@ -33,7 +31,6 @@ const ProductCard = ({ products }: { products: ProductMuebles[] }) => {
           </div>
         </Grid.Item>
       ))}
-      ;
     </>
   );
 };

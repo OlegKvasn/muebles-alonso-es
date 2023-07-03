@@ -12,7 +12,7 @@ const Navbar = async () => {
     preview: draftMode().isEnabled,
   });
   return (
-    <div className={styles.container}>
+    <nav className={styles.container}>
       <Link href="/">
         <Image
           className={styles.logo}
@@ -46,7 +46,7 @@ const Navbar = async () => {
       <div className={styles.burgerBtn}>
         <MobileMenu subMenuList={subMenuList} />
       </div>
-    </div>
+    </nav>
   );
 };
 

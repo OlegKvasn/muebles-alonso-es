@@ -15,5 +15,5 @@ export function parseContentfulContentImage(
     alt: asset.fields.description || "",
     width: asset.fields.file?.details.image?.width || 0,
     height: asset.fields.file?.details.image?.height || 0,
-  })) as ContentImage | null;
+  })) as ContentImage[] | null;
 }

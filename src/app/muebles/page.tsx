@@ -1,21 +1,26 @@
-import styles from './muebles.module.css'
+import Grid from "@/components/grid";
+import styles from "./muebles.module.css";
+import CategoryCard from "@/components/product/categoryCard";
+import { fetchAllCategorys } from "@/contentful/category";
+import { draftMode } from "next/headers";
 
-const Muebles = () => {
-  return ( 
-        <div className={styles.container}>
+const Muebles = async () => {
+  const cards = await fetchAllCategorys({ preview: draftMode().isEnabled });
+  return (
+    <div className={styles.container}>
       <div className={styles.title}>
         <h2>Muebles en Bizkaia</h2>
-        <p>En nuestra sección de muebles podrá encontrar una pequeña muestra entre todos nuestros muebles.</p>
+        <p>
+          En nuestra sección de muebles podrá encontrar una pequeña muestra
+          entre todos nuestros muebles.
+        </p>
       </div>
-      <div className={styles.block}>
-        <div className={styles.content}>
-          <h1>Messa!!!!</h1>
-          <h1>Sofa!!!!</h1>
-          <h1>Armario!!!!</h1>
-        </div>
-      </div>
+      <Grid>
+        <CategoryCard cards={cards} />
+      </Grid>
+      {/* <Sidebar /> */}
     </div>
-   );
-}
- 
+  );
+};
+
 export default Muebles;

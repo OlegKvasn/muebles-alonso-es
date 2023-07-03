@@ -5,8 +5,15 @@ import Link from "next/link";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { HamburgerMenuIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 import FurnitureBed from "@/components/icons/furniture/bed";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { useState } from "react";
 
 const MobileMenu = ({ subMenuList }: { subMenuList: string[] }) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger
@@ -28,7 +35,29 @@ const MobileMenu = ({ subMenuList }: { subMenuList: string[] }) => {
             <Link href="/muebles">Muebles</Link>
           </DropdownMenu.Item>
           <DropdownMenu.Separator className={styles.DropdownMenuSeparator} />
-          <DropdownMenu.Group>
+          <DropdownMenu.Sub>
+            <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+              <DropdownMenu.SubTrigger asChild>
+                <CollapsibleTrigger asChild>
+                  <button>Mueb</button>
+                </CollapsibleTrigger>
+              </DropdownMenu.SubTrigger>
+              <CollapsibleContent className="space-y-2">
+                {subMenuList.map((subMenuName) => (
+                  <DropdownMenu.Item
+                    key={subMenuName}
+                    className={styles.SubMenuItem}
+                    asChild
+                  >
+                    <Link href={`/muebles/${subMenuName}`}>
+                      {subMenuName == "sofas" ? "sofás" : subMenuName}
+                    </Link>
+                  </DropdownMenu.Item>
+                ))}
+              </CollapsibleContent>
+            </Collapsible>
+          </DropdownMenu.Sub>
+          {/* <DropdownMenu.Group>
             {subMenuList.map((subMenuName) => (
               <DropdownMenu.Item
                 key={subMenuName}
@@ -40,7 +69,7 @@ const MobileMenu = ({ subMenuList }: { subMenuList: string[] }) => {
                 </Link>
               </DropdownMenu.Item>
             ))}
-          </DropdownMenu.Group>
+          </DropdownMenu.Group> */}
           <DropdownMenu.Separator className={styles.DropdownMenuSeparator} />
           <DropdownMenu.Item className={styles.DropdownMenuItem}>
             <Link href="/servicios">Servicios</Link>

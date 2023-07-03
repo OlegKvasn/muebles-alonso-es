@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className={styles.container}>
+    <footer className={styles.container}>
       <h1 className={styles.titulo}>Tienda de muebles en Sestao</h1>
       <div className={styles.infoContainer}>
         <div>
@@ -70,7 +70,7 @@ const Footer = () => {
           height={52}
         />
       </div>
-    </div>
+    </footer>
   );
 };
 

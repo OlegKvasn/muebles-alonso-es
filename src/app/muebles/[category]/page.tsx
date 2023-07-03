@@ -1,12 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
 import styles from "./category.module.css";
-import Sidebar from "@/components/sidebar";
-import ProductCard from "@/components/productCard";
-
+import ProductCard from "@/components/product/productCard";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { fetchAllProducts } from "@/contentful/productsMuebles";
 import Grid from "@/components/grid";
+import ResponsiveImage from "@/components/images/responsiveImage";
+import { fetchCategory } from "@/contentful/category";
 
 async function categoryPage({ params }: { params: { category: string } }) {
   const products = await fetchAllProducts({ preview: draftMode().isEnabled });
@@ -18,20 +17,47 @@ async function categoryPage({ params }: { params: { category: string } }) {
     return notFound();
   }
 
+  const category = await fetchCategory({
+    slug: params.category,
+    preview: draftMode().isEnabled,
+  });
+
   return (
     <div className={styles.container}>
+      {category ? (
+        <ResponsiveImage
+          src={`https:${category.images[1].src}`}
+          alt={category.images[1].alt}
+          fill
+          priority
+          isInteractive={false}
+          className={styles.imageContainer}
+        />
+      ) : null}
       <div className={styles.title}>
-        <h2>{params.category}</h2>
-        <p>
-          Os mostramos algunas de las ofertas disponibles en Muebles Alonso.
-        </p>
+        <h2>{params.category == "sofas" ? "sofás" : params.category}</h2>
+        {category?.description ? (
+          <p>{category.description}</p>
+        ) : (
+          <p>
+            En esta sección de <b>Muebles Alonso</b>, podrás encontrar una
+            muestra de nuestro amplio catálogo de{" "}
+            {params.category == "sofas"
+              ? "sofás"
+              : params.category == "auxiliar"
+              ? "muebles auxiliares"
+              : params.category == "comedor"
+              ? "muebles de comedor"
+              : params.category == "juvenil"
+              ? "muebles juveniles"
+              : params.category}
+            .
+          </p>
+        )}
       </div>
-      <div className={styles.block}>
-        <Grid>
-          <ProductCard products={filteredProducts} />
-        </Grid>
-        <Sidebar />
-      </div>
+      <Grid>
+        <ProductCard products={filteredProducts} />
+      </Grid>
     </div>
   );
 }

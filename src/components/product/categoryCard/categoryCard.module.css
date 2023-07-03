@@ -1,0 +1,30 @@
+.content {
+  max-height: 25%;
+  margin: 0;
+  position: relative;
+  top: -80px;
+  left: 10px;
+  margin: 4px 0;
+  text-transform: capitalize;
+}
+
+.card h4 {
+  opacity: 0;
+  margin: 0;
+  color: #777;
+  transition: opacity ease-in-out 150ms;
+}
+
+.card:hover > h4 {
+  opacity: 1;
+  transition: opacity ease-in-out 150ms;
+}
+
+.card h2 {
+  transition: color ease-in-out 150ms;
+}
+
+.card:hover > h2 {
+  color: #777;
+  transition: color ease-in-out 150ms;
+}

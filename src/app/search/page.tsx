@@ -1,4 +1,4 @@
-import ProductCard from "@/components/productCard";
+import ProductCard from "@/components/product/productCard";
 import { draftMode } from "next/headers";
 import { fetchAllProducts } from "@/contentful/productsMuebles";
 import Grid from "@/components/grid";

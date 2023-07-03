@@ -3,8 +3,9 @@
 }
 
 .content {
+  max-height: 25%;
   background: #fff;
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
   margin: 0;
   position: relative;
   top: -40px;
@@ -22,6 +23,9 @@
   color: #777;
 }
 .actions {
+  position: relative;
+  top: -40px;
+  left: -10px;
   margin-top: 20px;
   display: flex;
   justify-content: flex-end;

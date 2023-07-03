@@ -1,0 +1,17 @@
+.imageContainer {
+  position: relative;
+  aspect-ratio: 70/45;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.imageInteractive {
+  object-fit: cover;
+  transition: transform ease 150ms;
+}
+.imageInteractive:hover {
+  transform: scale(1.08);
+  transition: transform ease 150ms;
+}

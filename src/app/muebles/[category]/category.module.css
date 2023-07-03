@@ -1,32 +1,39 @@
 .container {
-  height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
 }
 
 .title {
   display: flex;
   flex-direction: column;
-  height: 180px;
-  width: 100%;
+  height: 120px;
   background-image: url("/fondo-cabecera-pagina.jpg");
   justify-content: center;
   padding-left: 20%;
-  font-size: 18px;
+  padding-bottom: 1%;
 }
 
-.block {
+.title h2 {
+  text-transform: capitalize;
+}
+
+/* .block {
   margin: 50px;
-  display: flex;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(2, 1fr);
   gap: 50px;
+} */
+.imageContainer {
+  height: 200px;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1023px) {
   .block {
     flex-direction: column;
+  }
+  .imageContainer {
+    height: 130px;
   }
 }

@@ -1,10 +1,7 @@
 .container {
-  height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   font-size: 14px;
 }
 
@@ -12,20 +9,19 @@
   display: flex;
   flex-direction: column;
   height: 180px;
-  width: 100%;
   background-image: url("/fondo-cabecera-pagina.jpg");
   justify-content: center;
   padding-left: 20%;
   font-size: 18px;
 }
 
-.block {
+/* .block {
   margin: 50px;
   display: flex;
   gap: 50px;
-}
+} */
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1023px) {
   .block {
     flex-direction: column;
   }

@@ -1,6 +1,6 @@
 import styles from "./ofertas.module.css";
 import Sidebar from "@/components/sidebar";
-import ProductCard from "@/components/productCard";
+import ProductCard from "@/components/product/productCard";
 
 // import { createClient } from 'contentful';
 
@@ -37,7 +37,7 @@ const Ofertas = async () => {
         <Grid>
           <ProductCard products={filteredProducts} />
         </Grid>
-        <Sidebar />
+        {/* <Sidebar /> */}
       </div>
     </div>
   );

@@ -46,7 +46,17 @@
   height: auto;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1023px) {
+  .bottom {
+    gap: 20px;
+  }
+  .logo {
+    max-width: 70%;
+    max-height: 70%;
+  }
+}
+
+@media screen and (max-width: 767px) {
   .infoContainer {
     flex-direction: column;
     gap: 20px;
