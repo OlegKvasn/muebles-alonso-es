@@ -13,7 +13,7 @@ import {
 import { useState } from "react";
 
 const MobileMenu = ({ subMenuList }: { subMenuList: string[] }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger
@@ -28,14 +28,16 @@ const MobileMenu = ({ subMenuList }: { subMenuList: string[] }) => {
           className={styles.DropdownMenuContent}
           sideOffset={5}
         >
-          <DropdownMenu.Item className={styles.DropdownMenuItem}>
+          <DropdownMenu.Item asChild className={styles.DropdownMenuItem}>
             <Link href="/empresa">Empresa</Link>
           </DropdownMenu.Item>
-          <DropdownMenu.Item className={styles.DropdownMenuItem}>
-            <Link href="/muebles">Muebles</Link>
+          <DropdownMenu.Item asChild className={styles.DropdownMenuItem}>
+            <Link href="/muebles">
+              <b>Muebles</b>
+            </Link>
           </DropdownMenu.Item>
           <DropdownMenu.Separator className={styles.DropdownMenuSeparator} />
-          <DropdownMenu.Sub>
+          {/* <DropdownMenu.Sub>
             <Collapsible open={isOpen} onOpenChange={setIsOpen}>
               <DropdownMenu.SubTrigger asChild>
                 <CollapsibleTrigger asChild>
@@ -56,8 +58,8 @@ const MobileMenu = ({ subMenuList }: { subMenuList: string[] }) => {
                 ))}
               </CollapsibleContent>
             </Collapsible>
-          </DropdownMenu.Sub>
-          {/* <DropdownMenu.Group>
+          </DropdownMenu.Sub> */}
+          <DropdownMenu.Group>
             {subMenuList.map((subMenuName) => (
               <DropdownMenu.Item
                 key={subMenuName}
@@ -69,15 +71,15 @@ const MobileMenu = ({ subMenuList }: { subMenuList: string[] }) => {
                 </Link>
               </DropdownMenu.Item>
             ))}
-          </DropdownMenu.Group> */}
+          </DropdownMenu.Group>
           <DropdownMenu.Separator className={styles.DropdownMenuSeparator} />
-          <DropdownMenu.Item className={styles.DropdownMenuItem}>
+          <DropdownMenu.Item asChild className={styles.DropdownMenuItem}>
             <Link href="/servicios">Servicios</Link>
           </DropdownMenu.Item>
-          <DropdownMenu.Item className={styles.DropdownMenuItem}>
+          <DropdownMenu.Item asChild className={styles.DropdownMenuItem}>
             <Link href="/ofertas">Ofertas</Link>
           </DropdownMenu.Item>
-          <DropdownMenu.Item className={styles.DropdownMenuItem}>
+          <DropdownMenu.Item asChild className={styles.DropdownMenuItem}>
             <Link href="/contacto">Contacto</Link>
           </DropdownMenu.Item>
           <DropdownMenu.Arrow className={styles.DropdownMenuArrow} />

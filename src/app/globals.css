@@ -1,6 +1,8 @@
 :root {
   --nav-text-color: rgb(4, 4, 116);
   --nav-text-color-hover: rgba(6, 6, 145, 0.39);
+  --background-color: #eee;
+  --red-color: #cf2e2e;
 }
 body {
   box-sizing: border-box;
@@ -29,5 +31,11 @@ ul {
 @media screen and (max-width: 1023px) {
   body {
     font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 0.8em;
   }
 }

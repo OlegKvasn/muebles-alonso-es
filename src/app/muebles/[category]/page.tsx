@@ -6,6 +6,8 @@ import { fetchAllProducts } from "@/contentful/productsMuebles";
 import Grid from "@/components/grid";
 import ResponsiveImage from "@/components/images/responsiveImage";
 import { fetchCategory } from "@/contentful/category";
+import PageTitle from "@/components/pageTitle";
+import Link from "next/link";
 
 async function categoryPage({ params }: { params: { category: string } }) {
   const products = await fetchAllProducts({ preview: draftMode().isEnabled });
@@ -24,7 +26,7 @@ async function categoryPage({ params }: { params: { category: string } }) {
 
   return (
     <div className={styles.container}>
-      {category ? (
+      {category?.images ? (
         <ResponsiveImage
           src={`https:${category.images[1].src}`}
           alt={category.images[1].alt}
@@ -34,7 +36,7 @@ async function categoryPage({ params }: { params: { category: string } }) {
           className={styles.imageContainer}
         />
       ) : null}
-      <div className={styles.title}>
+      <PageTitle>
         <h2>{params.category == "sofas" ? "sofás" : params.category}</h2>
         {category?.description ? (
           <p>{category.description}</p>
@@ -54,7 +56,7 @@ async function categoryPage({ params }: { params: { category: string } }) {
             .
           </p>
         )}
-      </div>
+      </PageTitle>
       <Grid>
         <ProductCard products={filteredProducts} />
       </Grid>

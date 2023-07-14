@@ -1,19 +1,17 @@
-.container {
+/* .container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: 14px;
-}
+} */
 
-.title {
+/* .title {
   display: flex;
   flex-direction: column;
   height: 180px;
   background-image: url("/fondo-cabecera-pagina.jpg");
   justify-content: center;
   padding-left: 20%;
-  font-size: 18px;
-}
+} */
 
 /* .block {
   margin: 50px;
@@ -21,11 +19,11 @@
   gap: 50px;
 } */
 
-@media screen and (max-width: 1023px) {
+/* @media screen and (max-width: 1023px) {
   .block {
     flex-direction: column;
   }
-}
+} */
 
 /* .gridContent {
   gap: 3rem !important;

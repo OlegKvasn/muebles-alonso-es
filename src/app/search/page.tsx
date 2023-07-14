@@ -2,6 +2,7 @@ import ProductCard from "@/components/product/productCard";
 import { draftMode } from "next/headers";
 import { fetchAllProducts } from "@/contentful/productsMuebles";
 import Grid from "@/components/grid";
+import PageTitle from "@/components/pageTitle";
 
 export const metadata = {
   title: "Search",
@@ -31,14 +32,15 @@ export default async function SearchPage({
   return (
     <>
       {searchQuery ? (
-        <p>
-          {searchedProducts.length === 0
-            ? "There are no products that match "
-            : `Showing ${searchedProducts.length} ${resultsText} for `}
-          <span>&quot;{searchQuery}&quot;</span>
-        </p>
+        <PageTitle>
+          <p>
+            {searchedProducts.length === 0
+              ? "There are no products that match "
+              : `Showing ${searchedProducts.length} ${resultsText} for `}
+            <span>&quot;{searchQuery}&quot;</span>
+          </p>
+        </PageTitle>
       ) : null}
-      ;
       {searchedProducts.length > 0 ? (
         <Grid>
           <ProductCard products={searchedProducts} />

@@ -3,7 +3,20 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./photoslider.module.css";
 
-const PhotoSlider = ({ slides, parentWidth, parentHeight }: any) => {
+interface Images {
+  src: string;
+  title: string;
+}
+
+const PhotoSlider = ({
+  slides,
+  parentWidth,
+  parentHeight,
+}: {
+  slides: Images[];
+  parentWidth: number;
+  parentHeight: number;
+}) => {
   const timeRef = useRef<NodeJS.Timeout | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const smallMedia =
@@ -26,7 +39,7 @@ const PhotoSlider = ({ slides, parentWidth, parentHeight }: any) => {
   }, [currentIndex, slides]);
 
   const getSlideBackground = (slideIndex: number) => ({
-    backgroundImage: `url(${slides[slideIndex].url})`,
+    backgroundImage: `url(${slides[slideIndex].src})`,
     width: `${width}px`,
   });
 

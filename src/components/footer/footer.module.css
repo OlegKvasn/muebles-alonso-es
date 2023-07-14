@@ -1,8 +1,12 @@
+.container a:hover {
+  opacity: 0.5;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   color: #fff;
-  background-color: #cf2e2e;
+  background-color: var(--red-color);
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -12,6 +16,10 @@
 .infoContainer {
   display: flex;
   gap: 50px;
+}
+
+.infoContainer h4 {
+  margin: 0;
 }
 
 .links {
@@ -25,12 +33,10 @@
   align-items: center;
 }
 
-.line {
-  height: 1px;
-  width: auto;
-  color: #666;
-  opacity: 50%;
-  /* background-color: #666; */
+.separator {
+  width: 90%;
+  border-top: 1px solid var(--background-color);
+  opacity: 0.8;
 }
 
 .bottom {
@@ -59,15 +65,25 @@
 @media screen and (max-width: 767px) {
   .infoContainer {
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
   }
   .bottom {
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
   }
   .logo {
     max-width: 70%;
     max-height: 70%;
+  }
+  .container {
+    gap: 10px;
+  }
+
+  .container h1 {
+    margin: 0;
+  }
+  .links {
+    gap: 5px;
   }
 }

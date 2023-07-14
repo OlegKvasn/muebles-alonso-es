@@ -1,0 +1,15 @@
+.carousel {
+  margin: auto;
+  width: 100vw;
+  max-width: 1000px;
+  background: linear-gradient(var(--background-color), #fff);
+  :global(.carousel .slider-wrapper) {
+    border-radius: 1%;
+  }
+  :global(.carousel .control-prev.control-arrow:before) {
+    border-right: 8px solid black;
+  }
+  :global(.carousel .control-next.control-arrow:before) {
+    border-left: 8px solid black;
+  }
+}

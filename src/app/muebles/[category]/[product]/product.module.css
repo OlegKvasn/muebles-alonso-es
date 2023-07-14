@@ -1,26 +1,83 @@
 .container {
-  max-width: 1800px;
-  margin: 20px auto 80px;
-  padding: 0 20px;
-  width: 100%;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .container h3 {
   text-transform: uppercase;
 }
-.imageContainer h2 {
+.container h2 {
   max-height: 10%;
   margin: 0;
   background: #fff;
   display: inline-block;
   padding: 20px;
   position: relative;
-  top: -40px;
+  top: 0;
   left: -10px;
   transform: rotateZ(-1deg);
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
 }
-.info p {
-  margin: 0;
+
+.priceContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.priceContainer p {
+  margin: 5px;
+}
+
+.priceBefore {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.price {
+  font-weight: 800;
+  color: #f01b29;
+}
+
+.title2 {
+  text-align: center;
+  margin: 20px;
+}
+
+.separator {
+  margin-top: 7vh;
+  width: 95%;
+  border-top: 1px solid var(--background-color);
+  opacity: 0.8;
+}
+
+.links {
+  margin-left: 5%;
+  display: flex;
+  flex-direction: row;
+  gap: 1%;
+  text-transform: capitalize;
+}
+
+.links a:hover {
+  opacity: 0.5;
+}
+
+.actualPage {
+  font-weight: 500;
+}
+
+.description {
+  width: 95%;
+}
+
+.description p {
+  margin: 1vh 0;
+}
+.description hr {
+  margin-top: 3vh;
+  border-top: 1px solid var(--background-color);
+  opacity: 0.8;
 }

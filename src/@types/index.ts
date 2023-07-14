@@ -22,8 +22,8 @@ export interface ProductMuebles {
   images: ContentImage[] | null;
   materials?: string[] | null;
   isOferta: "oferta" | "normal";
-  price?: number | null;
-  priceBefore?: number | null;
+  price?: string | null;
+  priceBefore?: string | null;
   description?: Document | null | undefined;
 }
 
@@ -39,6 +39,6 @@ export interface Category {
     | "sofas"
     | "ofertas";
   slug: string;
-  images: ContentImage[];
+  images: ContentImage[] | null;
   description?: string | null;
 }

@@ -12,7 +12,7 @@ const Navbar = async () => {
     preview: draftMode().isEnabled,
   });
   return (
-    <nav className={styles.container}>
+    <header className={styles.container}>
       <Link href="/">
         <Image
           className={styles.logo}
@@ -25,28 +25,30 @@ const Navbar = async () => {
       <div className={styles.searchBar}>
         <SearchBar />
       </div>
-      <ul className={styles.navList}>
-        <li className={styles.navListLink}>
-          <Link href="/empresa">Empresa</Link>
-        </li>
-        <li className={styles.dropdownMenu}>
-          <DropdownMenu trigerName={"Muebles"} subMenuList={subMenuList} />
-        </li>
-        <li className={styles.navListLink}>
-          <Link href="/servicios">Servicios</Link>
-        </li>
-        <li className={styles.navListLink}>
-          <Link href="/ofertas">Ofertas</Link>
-        </li>
-        <li className={styles.navListLink}>
-          <Link href="/contacto">Contacto</Link>
-        </li>
-      </ul>
-      {/* FIXME: Style me*/}
-      <div className={styles.burgerBtn}>
-        <MobileMenu subMenuList={subMenuList} />
-      </div>
-    </nav>
+      <nav>
+        <ul className={styles.navList}>
+          <li className={styles.navListLink}>
+            <Link href="/empresa">Empresa</Link>
+          </li>
+          <li className={styles.dropdownMenu}>
+            <DropdownMenu trigerName={"Muebles"} subMenuList={subMenuList} />
+          </li>
+          <li className={styles.navListLink}>
+            <Link href="/servicios">Servicios</Link>
+          </li>
+          <li className={styles.navListLink}>
+            <Link href="/ofertas">Ofertas</Link>
+          </li>
+          <li className={styles.navListLink}>
+            <Link href="/contacto">Contacto</Link>
+          </li>
+        </ul>
+        {/* FIXME: Style me*/}
+        <div className={styles.burgerBtn}>
+          <MobileMenu subMenuList={subMenuList} />
+        </div>
+      </nav>
+    </header>
   );
 };
 

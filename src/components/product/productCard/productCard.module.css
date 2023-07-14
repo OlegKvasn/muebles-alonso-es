@@ -3,7 +3,7 @@
 }
 
 .content {
-  max-height: 25%;
+  max-height: 40%;
   background: #fff;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
   margin: 0;
@@ -11,28 +11,28 @@
   top: -40px;
   left: -10px;
 }
-.info {
+
+.content h4 {
+  margin: 16px 0 0 0;
   padding: 16px;
-}
-.info h4 {
-  margin: 4px 0;
   text-transform: uppercase;
 }
-.info p {
-  margin: 0;
+.priceContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.priceContainer p {
+  margin: 5px;
+}
+
+.priceBefore {
+  text-decoration: line-through;
   color: #777;
 }
-.actions {
-  position: relative;
-  top: -40px;
-  left: -10px;
-  margin-top: 20px;
-  display: flex;
-  justify-content: flex-end;
-}
-.actions a {
-  color: #fff;
-  background: #f01b29;
-  padding: 16px 24px;
-  text-decoration: none;
+
+.price {
+  font-weight: 800;
+  color: #f01b29;
 }

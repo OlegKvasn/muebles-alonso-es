@@ -1,0 +1,13 @@
+.title {
+  display: flex;
+  flex-direction: column;
+  height: 120px;
+  background-image: url("/fondo-cabecera-pagina.jpg");
+  justify-content: center;
+  padding-left: 20%;
+  padding-bottom: 1%;
+}
+
+.title h2 {
+  text-transform: capitalize;
+}

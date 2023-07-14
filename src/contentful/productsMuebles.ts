@@ -17,8 +17,14 @@ export function parseContentfulProductMuebles(
     titleSlug: productEntry.fields.titleSlug,
     category: productEntry.fields.category,
     isOferta: productEntry.fields.isOferta,
-    price: productEntry.fields.price || null,
-    priceBefore: productEntry.fields.priceBefore || null,
+    price:
+      (productEntry.fields.price &&
+        new Intl.NumberFormat().format(productEntry.fields.price)) ||
+      null,
+    priceBefore:
+      (productEntry.fields.priceBefore &&
+        new Intl.NumberFormat().format(productEntry.fields.priceBefore)) ||
+      null,
     materials: productEntry.fields.materials || null,
     description: productEntry.fields.description || null,
     images: parseContentfulContentImage(productEntry.fields.images),

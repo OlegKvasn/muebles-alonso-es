@@ -1,12 +1,12 @@
 import styles from "./product.module.css";
-// import Sidebar from '@/components/sidebar';
 import { Metadata, ResolvingMetadata } from "next";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { fetchProduct, fetchAllProducts } from "@/contentful/productsMuebles";
 import RichText from "@/contentful/RichText";
-import { getPlaiceholder } from "plaiceholder";
-import ResponsiveImage from "@/components/images/responsiveImage";
+import Gallery from "@/components/images/gallery";
+import CardCarousel from "@/components/product/cardCarousel";
+import Link from "next/link";
 
 interface ProductPageParams {
   product: string;
@@ -46,36 +46,42 @@ const ProductDetails = async ({ params }: ProductPageProps) => {
     return notFound();
   }
 
-  const src = `https:${product.images && product.images[0].src}`;
-  const buffer = await fetch(src).then(async (res) =>
-    Buffer.from(await res.arrayBuffer())
-  );
-  const { base64 } = await getPlaiceholder(buffer);
+  const products = await fetchAllProducts({ preview: draftMode().isEnabled });
+  const filteredProducts = products.filter((e) => {
+    return e.category === product.category && e.titleSlug !== product.titleSlug;
+  });
 
   return (
-    <div className={styles.container}>
-      <div>
-        {product.images && (
-          <ResponsiveImage
-            src={`https:${product.images[0].src}`}
-            alt={product.images[0].alt}
-            fill
-            priority
-            placeholder="blur"
-            blurDataURL={base64}
-            isInteractive={false}
-          />
-        )}
+    <>
+      <div className={styles.links}>
+        <Link href={`/muebles/`}>
+          <h4>Muebles ⤍</h4>
+        </Link>
+        <Link href={`/muebles/${product.category}`}>
+          <h4>{product.category == "sofas" ? "sofás" : product.category} ⤍</h4>
+        </Link>
+        <h4 className={styles.actualPage}>{product.title}</h4>
+      </div>
+      <div className={styles.container}>
+        {product.images && <Gallery images={product.images} />}
         <h2>{product.title}</h2>
+        <div className={styles.priceContainer}>
+          {product.priceBefore && (
+            <p className={styles.priceBefore}>{`${product.priceBefore} €`}</p>
+          )}
+          {product.price && (
+            <p className={styles.price}>{`${product.price} €`}</p>
+          )}
+        </div>
+        <div className={styles.description}>
+          {/* {product.description && <h3>Details:</h3>} */}
+          <RichText document={product.description} />
+        </div>
       </div>
-      <div className={styles.info}>
-        <p>{`Price: ${product.price} €`}</p>
-      </div>
-      <div className={styles.description}>
-        <h3>Details:</h3>
-        <RichText document={product.description} />
-      </div>
-    </div>
+      <hr className={styles.separator} />
+      <h3 className={styles.title2}>Tambien te puede gustar :</h3>
+      <CardCarousel products={filteredProducts} />
+    </>
   );
 };
 

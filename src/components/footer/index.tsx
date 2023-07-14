@@ -8,22 +8,20 @@ const Footer = () => {
       <h1 className={styles.titulo}>Tienda de muebles en Sestao</h1>
       <div className={styles.infoContainer}>
         <div>
-          <h4>Email</h4>
-          <Link href="/contacto" className={styles.link}>
-            Contacto
+          <Link href="/contacto" className={styles.logo}>
+            <Image src="/barra.png" alt="" width={219} height={173} />
           </Link>
-          <br /> <br />
+        </div>
+        <div>
           <h4>Office</h4>
           <p>Calle Via Galindo, nº1,</p>
           <p>48910 Sestao,Bizkaia</p>
-        </div>
-        <div>
+          <br />
           <h4>Teléfono</h4>
           <p>94 495 62 49</p>
           <br />
           <h4>Horario</h4>
           <p>L-V 9:30-13:30, 16:30-20:30</p>
-          <br />
           <p>S 9:30-13:30</p>
         </div>
         <div className={styles.links}>
@@ -55,10 +53,11 @@ const Footer = () => {
         <p>servicio y la calidad que usted busca. Desde nuestros inicios nos</p>
         <p>hemos propuesto ofrecer calidad al mejor precio posible.</p>
       </div>
-      <div>
-        {" "}
-        <hr className={styles.line} />
-      </div>
+      {/* <Separator.Root
+        className={styles.SeparatorRoot}
+        style={{ margin: "15px 0" }}
+      /> */}
+      <hr className={styles.separator} />
 
       <div className={styles.bottom}>
         <p>Copyright © 2023 | Alonso Furnitures S.L.</p>
