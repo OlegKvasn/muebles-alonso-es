@@ -1,10 +1,6 @@
-import styles from "./ofertas.module.css";
-import Sidebar from "@/components/sidebar";
 import ProductCard from "@/components/product/productCard";
 import PageTitle from "@/components/pageTitle";
-
 // import { createClient } from 'contentful';
-
 import { draftMode } from "next/headers";
 import { fetchAllProducts } from "@/contentful/productsMuebles";
 import Grid from "@/components/grid";
@@ -19,6 +15,10 @@ import Grid from "@/components/grid";
 //   return res.items
 // }
 
+export const metadata = {
+  title: "Ofertas - Muebles Alonso",
+};
+
 const Ofertas = async () => {
   // const products = await getData()
   const products = await fetchAllProducts({ preview: draftMode().isEnabled });
@@ -27,26 +27,17 @@ const Ofertas = async () => {
   });
 
   return (
-    <div className={styles.container}>
+    <main>
       <PageTitle>
         <h2>Ofertas</h2>
         <p>
           Os mostramos algunas de las ofertas disponibles en Muebles Alonso.
         </p>
       </PageTitle>
-      {/* <div className={styles.title}>
-        <h2>Ofertas</h2>
-        <p>
-          Os mostramos algunas de las ofertas disponibles en Muebles Alonso.
-        </p>
-      </div> */}
-      <div className={styles.block}>
-        <Grid>
-          <ProductCard products={filteredProducts} />
-        </Grid>
-        {/* <Sidebar /> */}
-      </div>
-    </div>
+      <Grid>
+        <ProductCard products={filteredProducts} />
+      </Grid>
+    </main>
   );
 };
 

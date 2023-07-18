@@ -1,31 +1,25 @@
 import styles from "./sidebar.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { ProductMuebles } from "@/@types";
+import ProductCard from "../product/productCard";
 
-const Sidebar = () => {
+interface SidebarProps extends React.ComponentProps<"aside"> {
+  products: ProductMuebles[];
+}
+
+const Sidebar = ({ products, ...props }: SidebarProps) => {
   return (
-    <aside className={styles.container}>
+    <aside {...props} className={`${styles.container} ${props.className}`}>
       <Link href="/contacto" className={styles.logo}>
         <Image src="/barra.png" alt="" width={219} height={173} />
       </Link>
-      <div>Ofertas</div>
-      <div className={styles.links}>
-        <Link href="/empresa" className={styles.navigation}>
-          Empresa
-        </Link>
-        <Link href="/muebles" className={styles.navigation}>
-          Muebles
-        </Link>
-        <Link href="/servicios" className={styles.navigation}>
-          Servicios
-        </Link>
-        <Link href="/ofertas" className={styles.navigation}>
-          Ofertas
-        </Link>
-        <Link href="/contacto" className={styles.navigation}>
-          Contacto
-        </Link>
-      </div>
+      <Link href={"/ofertas"}>
+        <h3>Ofertas Recientes</h3>
+      </Link>
+      <ul className={styles.cards}>
+        <ProductCard products={products} />
+      </ul>
     </aside>
   );
 };

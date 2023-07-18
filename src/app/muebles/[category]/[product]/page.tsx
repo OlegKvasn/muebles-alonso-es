@@ -33,7 +33,7 @@ export async function generateMetadata(
     return notFound();
   }
   return {
-    title: product.title,
+    title: product.title + " - Muebles Alonso",
   };
 }
 
@@ -52,7 +52,7 @@ const ProductDetails = async ({ params }: ProductPageProps) => {
   });
 
   return (
-    <>
+    <main>
       <div className={styles.links}>
         <Link href={`/muebles/`}>
           <h4>Muebles ⤍</h4>
@@ -79,9 +79,9 @@ const ProductDetails = async ({ params }: ProductPageProps) => {
         </div>
       </div>
       <hr className={styles.separator} />
-      <h3 className={styles.title2}>Tambien te puede gustar :</h3>
+      <h3 className={styles.bottomContainerTitle}>Tambien te puede gustar :</h3>
       <CardCarousel products={filteredProducts} />
-    </>
+    </main>
   );
 };
 

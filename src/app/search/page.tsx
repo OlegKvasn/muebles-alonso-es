@@ -30,7 +30,7 @@ export default async function SearchPage({
   const resultsText = searchedProducts.length > 1 ? "results" : "result";
 
   return (
-    <>
+    <main>
       {searchQuery ? (
         <PageTitle>
           <p>
@@ -46,6 +46,6 @@ export default async function SearchPage({
           <ProductCard products={searchedProducts} />
         </Grid>
       ) : null}
-    </>
+    </main>
   );
 }

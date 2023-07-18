@@ -28,19 +28,19 @@ const Footer = () => {
           <Link href="/contacto" className={styles.link}>
             Contacta con nosotros
           </Link>
-          <Link href="/muebles" className={styles.link}>
+          <Link href="/politica-de-cookies" className={styles.link}>
             Politica de cookies
           </Link>
-          <Link href="/servicios" className={styles.link}>
+          <Link href="/politica-de-privacidad" className={styles.link}>
             Política de privacidad
           </Link>
-          <Link href="/ofertas" className={styles.link}>
+          <Link href="/aviso-legal" className={styles.link}>
             Aviso legal
           </Link>
-          <Link href="/contacto" className={styles.link}>
+          <Link href="/accesibilidad" className={styles.link}>
             Accesibilidad
           </Link>
-          <Link href="/contacto" className={styles.link}>
+          <Link href="/enlaces" className={styles.link}>
             Enlaces
           </Link>
         </div>

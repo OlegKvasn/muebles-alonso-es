@@ -1,9 +1,12 @@
 import Grid from "@/components/grid";
-import styles from "./muebles.module.css";
 import CategoryCard from "@/components/product/categoryCard";
 import { fetchAllCategorys } from "@/contentful/category";
 import { draftMode } from "next/headers";
 import PageTitle from "@/components/pageTitle";
+
+export const metadata = {
+  title: "Muebles en Bizkaia - Muebles Alonso",
+};
 
 const Muebles = async () => {
   const cards = await fetchAllCategorys({ preview: draftMode().isEnabled });
@@ -17,7 +20,7 @@ const Muebles = async () => {
     return 0;
   });
   return (
-    <div className={styles.container}>
+    <main>
       <PageTitle>
         <h2>Muebles en Bizkaia</h2>
         <p>
@@ -29,7 +32,7 @@ const Muebles = async () => {
         <CategoryCard cards={sortedCards} />
       </Grid>
       {/* <Sidebar /> */}
-    </div>
+    </main>
   );
 };
 

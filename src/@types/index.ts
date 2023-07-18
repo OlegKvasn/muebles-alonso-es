@@ -42,3 +42,12 @@ export interface Category {
   images: ContentImage[] | null;
   description?: string | null;
 }
+export interface InfoPages {
+  title: string;
+  slug: string;
+  pageTitleName?: string | null;
+  pageTitleDescription?: string | null;
+  pageImage?: ContentImage | null;
+  pageContent: Document;
+  activeSidebar: boolean;
+}

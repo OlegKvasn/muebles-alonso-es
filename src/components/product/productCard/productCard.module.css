@@ -1,5 +1,6 @@
 .card {
   transform: rotateZ(-1deg);
+  padding: 10px;
 }
 
 .content {

@@ -7,7 +7,24 @@ import Grid from "@/components/grid";
 import ResponsiveImage from "@/components/images/responsiveImage";
 import { fetchCategory } from "@/contentful/category";
 import PageTitle from "@/components/pageTitle";
-import Link from "next/link";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { category: string };
+}): Promise<Metadata> {
+  const category = await fetchCategory({
+    slug: params.category,
+    preview: draftMode().isEnabled,
+  });
+  if (!category) {
+    return notFound();
+  }
+  return {
+    title: category.category + " - Muebles Alonso",
+  };
+}
 
 async function categoryPage({ params }: { params: { category: string } }) {
   const products = await fetchAllProducts({ preview: draftMode().isEnabled });
@@ -25,7 +42,7 @@ async function categoryPage({ params }: { params: { category: string } }) {
   });
 
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       {category?.images ? (
         <ResponsiveImage
           src={`https:${category.images[1].src}`}
@@ -60,7 +77,7 @@ async function categoryPage({ params }: { params: { category: string } }) {
       <Grid>
         <ProductCard products={filteredProducts} />
       </Grid>
-    </div>
+    </main>
   );
 }
 

@@ -33,21 +33,21 @@ export default async function Home() {
     return e.isOferta === "oferta";
   });
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       <ReactResponsiveCarousel images={slides} />
-      <div className={styles.title}>
+      <section className={styles.title}>
         <h3>Muebles Alonso, tu tienda de muebles de confianza</h3>
         <p>Consúltanos y te asesoraremos en la compra de tus muebles</p>
-      </div>
+      </section>
       <Grid className={styles.categorysGrid}>
         <CategoryCard cards={sortedCards} />
       </Grid>
-      <div className={styles.bottomContainer}>
+      <section className={styles.bottomContainer}>
         <Link href={"/ofertas"}>
           <h2>Muebles en oferta</h2>
         </Link>
-        <CardCarousel products={filteredProducts} />
-      </div>
-    </div>
+      </section>
+      <CardCarousel products={filteredProducts} />
+    </main>
   );
 }
