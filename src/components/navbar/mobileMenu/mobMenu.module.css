@@ -28,6 +28,7 @@
   animation-duration: 800ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
+  z-index: 5;
 }
 .DropdownMenuContent[data-side="top"] {
   animation-name: slideDownAndFade;

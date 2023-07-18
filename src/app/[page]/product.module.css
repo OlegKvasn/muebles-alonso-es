@@ -57,7 +57,9 @@
     display: none !important;
   }
   .pageContent {
-    width: 100%;
+    margin: 50px 0;
+    padding: 0 20px;
+    border-right: 0px solid var(--background-color);
   }
 }
 
