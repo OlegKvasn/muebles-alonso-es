@@ -11,6 +11,12 @@
 .input {
   padding: 0.5rem 0.5rem 0.5rem 2rem;
 }
+.input:focus {
+  border: 1px solid var(--nav-text-color);
+  box-shadow: 0 0 3px var(--nav-text-color);
+  outline-offset: 0px;
+  outline: none;
+}
 
 .icon {
   height: 100%;

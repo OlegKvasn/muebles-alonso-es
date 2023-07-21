@@ -28,6 +28,17 @@ ul {
   padding: 0;
 }
 
+.draft-mode {
+  background-color: orange;
+  padding: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.draft-mode-exit-link {
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 1023px) {
   body {
     font-size: 1em;

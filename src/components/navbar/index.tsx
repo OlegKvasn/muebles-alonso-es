@@ -14,6 +14,9 @@ const Navbar = async () => {
   return (
     <header className={styles.container}>
       <Link href="/">
+        {/* <div className={styles.logo}>
+          <Image src="/logo.jpg" alt="" fill />
+        </div> */}
         <Image
           className={styles.logo}
           src="/logo.jpg"

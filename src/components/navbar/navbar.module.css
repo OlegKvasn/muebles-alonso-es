@@ -12,8 +12,8 @@
 }
 
 .logo {
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
   margin-left: 10px;
 }
 
@@ -65,8 +65,7 @@
     display: none;
   }
   .logo {
-    max-width: 50%;
-    max-height: 50%;
+    max-width: 60%;
   }
   .burgerBtn {
     display: block;
